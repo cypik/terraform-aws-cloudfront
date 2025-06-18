@@ -42,7 +42,7 @@ module "cdn" {
   environment            = local.environment
   enabled_bucket         = true
   compress               = false
-  aliases                = ["clouddrove.com"]
+  aliases                = ["Cypik.com"]
   bucket_name            = module.s3_bucket.id
   viewer_protocol_policy = "redirect-to-https"
   allowed_methods        = ["GET", "HEAD"]
