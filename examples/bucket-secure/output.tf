@@ -9,10 +9,6 @@ output "tags" {
 }
 
 
-#output "oai_iam_arn" {
-#  value = module.cdn.oai_iam_arn
-#}
-
 output "bucket_distribution_id" {
   value = module.cdn.bucket_distribution_id
 }
