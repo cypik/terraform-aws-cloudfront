@@ -16,7 +16,7 @@ To use this module, you can include it in your Terraform configuration. Here's a
 
 ## Examples
 
-## Example: bucket-basic
+## Example: cdn with bucket
 ```hcl
 module "cdn" {
   source                 = "cypik/cloudfront/aws"
@@ -32,7 +32,7 @@ module "cdn" {
   acm_certificate_arn    = module.acm.arn
 }
 ```
-## Example: bucket-secure
+## Example: cdn with singed url
 ```hcl
 module "cdn" {
   source                 = "cypik/cloudfront/aws"
@@ -51,7 +51,7 @@ module "cdn" {
   public_key             = "./cdn.pem"
 }
 ```
-## Example: domain-cdn
+## Example: cdn with domain
 ```hcl
 module "cdn" {
   sourc                  = "cypik/cloudfront/aws"
