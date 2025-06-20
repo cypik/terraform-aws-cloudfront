@@ -7,7 +7,7 @@ variable "name" {
 
 variable "repository" {
   type        = string
-  default     = "https://github.com/Cypik/terraform-aws-cloudfront-cdn"
+  default     = "https://github.com/Cypik/terraform-aws-cloudfront"
   description = "Terraform current module repo"
 
   validation {
