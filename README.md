@@ -1,6 +1,4 @@
-# Terraform-aws-cloudfront_distribution
-
-# Terraform Aws_cloudfront_distribution Module
+# Terraform Aws_cloudfront
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -16,12 +14,13 @@ This Terraform module creates an AWS cloudfront_distribution Service (cloudfront
 ## Usage
 To use this module, you can include it in your Terraform configuration. Here's an example of how to use it:
 
-## Example
+## Examples
 
+## Example: bucket-basic
 ```hcl
 module "cdn" {
-  source = "./../../"
-
+  source                 = "cypik/cloudfront/aws"
+  version                 = "1.0.1"
   name                   = "${local.name}-basic"
   environment            = local.environment
   enabled_bucket         = true
@@ -33,11 +32,11 @@ module "cdn" {
   acm_certificate_arn    = module.acm.arn
 }
 ```
-
+## Example: bucket-secure
 ```hcl
 module "cdn" {
-  source = "./../../"
-
+  source                 = "cypik/cloudfront/aws"
+  version                 = "1.0.1"
   name                   = "${local.name}-secure"
   environment            = local.environment
   enabled_bucket         = true
@@ -52,11 +51,11 @@ module "cdn" {
   public_key             = "./cdn.pem"
 }
 ```
-
+## Example: domain-cdn
 ```hcl
 module "cdn" {
-  source = "./../../"
-
+  sourc                  = "cypik/cloudfront/aws"
+  version                 = "1.0.1"
   name                   = "${local.name}-domain"
   environment            = local.environment
   custom_domain          = true

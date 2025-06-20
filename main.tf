@@ -23,8 +23,6 @@ resource "aws_cloudfront_origin_access_control" "s3_oac" {
 }
 
 
-# Module      : CLOUDFRONT DISTRIBUSTION
-# Description : Creates an Amazon CloudFront web distribution
 #tfsec:ignore:aws-cloudfront-use-secure-tls-policy
 #tfsec:ignore:aws-cloudfront-enable-waf
 resource "aws_cloudfront_distribution" "bucket" {

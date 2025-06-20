@@ -1,5 +1,4 @@
-#Module      : LABEL
-#Description : Terraform label module variables
+
 variable "name" {
   type        = string
   default     = ""
@@ -36,8 +35,6 @@ variable "managedby" {
   description = "ManagedBy, eg 'info@cypik.com'."
 }
 
-# Module      : CDN Module
-# Description : Terraform CDN module variables
 variable "aliases" {
   type        = list(string)
   default     = []
