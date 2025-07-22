@@ -20,7 +20,7 @@ To use this module, you can include it in your Terraform configuration. Here's a
 ```hcl
 module "cdn" {
   source                 = "cypik/cloudfront/aws"
-  version                 = "1.0.1"
+  version                 = "1.0.0"
   name                   = "${local.name}-basic"
   environment            = local.environment
   enabled_bucket         = true
@@ -36,7 +36,7 @@ module "cdn" {
 ```hcl
 module "cdn" {
   source                 = "cypik/cloudfront/aws"
-  version                 = "1.0.1"
+  version                 = "1.0.0"
   name                   = "${local.name}-secure"
   environment            = local.environment
   enabled_bucket         = true
@@ -55,7 +55,7 @@ module "cdn" {
 ```hcl
 module "cdn" {
   sourc                  = "cypik/cloudfront/aws"
-  version                 = "1.0.1"
+  version                 = "1.0.0"
   name                   = "${local.name}-domain"
   environment            = local.environment
   custom_domain          = true
