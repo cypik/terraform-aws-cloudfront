@@ -1,4 +1,4 @@
-# Terraform Aws_cloudfront
+# Terraform Aws Cloudfront
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -20,7 +20,7 @@ To use this module, you can include it in your Terraform configuration. Here's a
 ```hcl
 module "cdn" {
   source                 = "cypik/cloudfront/aws"
-  version                 = "1.0.0"
+  version                = "1.0.1"
   name                   = "${local.name}-basic"
   environment            = local.environment
   enabled_bucket         = true
@@ -36,7 +36,7 @@ module "cdn" {
 ```hcl
 module "cdn" {
   source                 = "cypik/cloudfront/aws"
-  version                 = "1.0.0"
+  version                = "1.0.1"
   name                   = "${local.name}-secure"
   environment            = local.environment
   enabled_bucket         = true
@@ -55,7 +55,7 @@ module "cdn" {
 ```hcl
 module "cdn" {
   sourc                  = "cypik/cloudfront/aws"
-  version                 = "1.0.0"
+  version                = "1.0.1"
   name                   = "${local.name}-domain"
   environment            = local.environment
   custom_domain          = true
@@ -67,7 +67,32 @@ module "cdn" {
   acm_certificate_arn    = module.acm.arn
 }
 ```
-
+## Example: cdn-with-alb
+```hcl
+module "cdn" {
+  sourc                  = "cypik/cloudfront/aws"
+  version                = "1.0.1"
+  name                   = "${local.name}-distribution"
+  environment            = local.environment
+  cdn_enabled            = true
+  custom_domain          = true
+  enabled_bucket         = false
+  compress               = true
+  aliases                = ["taj9339.xyz", "www.taj9339.xyz"]
+  acm_certificate_arn    = ""
+  domain_name            = module.alb.dns_name
+  origin_http_port       = 80
+  origin_https_port      = 443
+  origin_protocol_policy = "http-only" # Change to http-only since ALB uses HTTP
+  origin_ssl_protocols   = ["TLSv1.2"]
+  viewer_protocol_policy = "redirect-to-https"
+  allowed_methods        = ["GET", "HEAD", "OPTIONS"]
+  cached_methods         = ["GET", "HEAD"]
+  min_ttl                = 0
+  default_ttl            = 3600
+  max_ttl                = 86400
+}
+```
 ## Example
 For detailed examples on how to use this module, please refer to the Examples directory within this repository.
 
@@ -150,7 +175,7 @@ This project is licensed under the **MIT** License - see the LICENSE file for de
 | <a name="input_price_class"></a> [price\_class](#input\_price\_class) | Price class for this distribution: `PriceClass_All`, `PriceClass_200`, `PriceClass_100`. | `string` | `"PriceClass_100"` | no |
 | <a name="input_public_key"></a> [public\_key](#input\_public\_key) | It encoded public key that you want to add to CloudFront to use with features like field-level encryption. | `string` | `""` | no |
 | <a name="input_public_key_enable"></a> [public\_key\_enable](#input\_public\_key\_enable) | Public key enable or disable. | `bool` | `false` | no |
-| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `"https://github.com/Cypik/terraform-aws-cloudfront-cdn"` | no |
+| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `"https://github.com/Cypik/terraform-aws-cloudfront"` | no |
 | <a name="input_response_code"></a> [response\_code](#input\_response\_code) | page not found code | `string` | `"404"` | no |
 | <a name="input_response_page_path"></a> [response\_page\_path](#input\_response\_page\_path) | The path of the custom error page (for example, /custom\_404.html). | `string` | `"/index.html"` | no |
 | <a name="input_smooth_streaming"></a> [smooth\_streaming](#input\_smooth\_streaming) | Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. | `bool` | `false` | no |
