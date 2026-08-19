@@ -10,7 +10,7 @@ locals {
 
 module "vpc" {
   source      = "cypik/vpc/aws"
-  version     = "1.0.3"
+  version     = "1.0.5"
   name        = "${local.name}-vpc"
   environment = local.environment
   cidr_block  = "10.0.0.0/16"
@@ -18,7 +18,7 @@ module "vpc" {
 
 module "public_subnets" {
   source             = "cypik/subnet/aws"
-  version            = "1.0.5"
+  version            = "1.0.7"
   name               = "${local.name}-public-subnet"
   environment        = local.environment
   availability_zones = ["ap-south-1a", "ap-south-1b"]
@@ -30,7 +30,7 @@ module "public_subnets" {
 
 module "iam-role" {
   source             = "cypik/iam-role/aws"
-  version            = "1.0.3"
+  version            = "1.0.4"
   name               = "${local.name}-ec2-role"
   environment        = local.environment
   assume_role_policy = data.aws_iam_policy_document.ec2_assume_role.json
@@ -65,7 +65,7 @@ data "aws_iam_policy_document" "ec2_policy" {
 
 module "ec2" {
   source            = "cypik/ec2/aws"
-  version           = "1.0.5"
+  version           = "1.0.6"
   name              = "${local.name}-backend"
   environment       = local.environment
   vpc_id            = module.vpc.vpc_id
@@ -111,7 +111,7 @@ module "ec2" {
 
 module "alb" {
   source                     = "cypik/lb/aws"
-  version                    = "1.0.5"
+  version                    = "1.0.6"
   name                       = "${local.name}-alb"
   environment                = local.environment
   enable                     = true
