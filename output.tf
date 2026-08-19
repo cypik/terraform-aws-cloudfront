@@ -67,8 +67,6 @@ output "tags" {
   description = "A mapping of tags to assign to the resource."
 }
 
-
-
 output "bucket_distribution_id" {
   value = aws_cloudfront_distribution.bucket[*].id
 }

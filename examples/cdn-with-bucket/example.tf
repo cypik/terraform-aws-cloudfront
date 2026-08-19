@@ -11,7 +11,7 @@ locals {
 
 module "s3_bucket" {
   source                  = "cypik/s3/aws"
-  version                 = "1.0.2"
+  version                 = "1.0.4"
   name                    = "${local.name}-basic-bucket-cdn"
   environment             = local.environment
   versioning              = false

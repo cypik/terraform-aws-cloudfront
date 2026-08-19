@@ -10,7 +10,7 @@ locals {
 
 module "s3_bucket" {
   source      = "cypik/s3/aws"
-  version     = "1.0.2"
+  version     = "1.0.4"
   name        = "${local.name}-secure-bucket-cdn"
   environment = local.environment
   versioning  = true
@@ -19,7 +19,7 @@ module "s3_bucket" {
 
 module "acm" {
   source               = "cypik/acm/aws"
-  version              = "1.0.2"
+  version              = "1.0.3"
   name                 = "${local.name}-certificate"
   environment          = local.environment
   domain_name          = "Cypik.com"

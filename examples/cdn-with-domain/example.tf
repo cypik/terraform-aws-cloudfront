@@ -10,7 +10,7 @@ locals {
 
 module "acm" {
   source                 = "cypik/acm/aws"
-  version                = "1.0.2"
+  version                = "1.0.3"
   name                   = "${local.name}-certificate"
   environment            = local.environment
   domain_name            = "cypik.com"
